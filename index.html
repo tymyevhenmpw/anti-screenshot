@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anti-Screenshot Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        #screenshotWarning {
+            display: none;
+            color: red;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Anti-Screenshot Page</h1>
+    <p>This page is designed to discourage screenshots.</p>
+    
+    <p>Please do not attempt to take screenshots.</p>
+    
+    <div id="screenshotWarning">Screenshots are not allowed on this page!</div>
+
+    <script>
+        // Check for screenshot attempts
+        window.addEventListener('keyup', function(e) {
+            if (e.key === 'PrintScreen' || (e.key === 'VolumeUp' && e.key === 'Power')) {
+                // Show warning message
+                document.getElementById('screenshotWarning').style.display = 'block';
+                
+                // Prevent default behavior
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        });
+    </script>
+</body>
+</html>
